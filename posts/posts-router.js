@@ -174,7 +174,7 @@ router.put("/:id", (req, res) => {
       } else {
         Posts.update(req.params.id, changes).then((p) => {
           return Posts.findById(req.params.id).then((p) => {
-            res.status(200).json(p);
+            res.status(200).json(p[0]);
           });
         });
       }
