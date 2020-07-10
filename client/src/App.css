@@ -152,3 +152,9 @@ button:hover {
   font-size: 1.2rem;
   color: red;
 }
+.comments {
+  opacity: 0.8;
+  padding: 2rem;
+  background: rgb(143, 235, 219);
+  color: black;
+}

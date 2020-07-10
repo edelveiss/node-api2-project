@@ -172,10 +172,24 @@ router.put("/:id", (req, res) => {
           errorMessage: "Please provide title and contents for the post.",
         });
       } else {
-        Posts.update(req.params.id, changes).then((p) => {
-          return Posts.findById(req.params.id).then((p) => {
-            res.status(200).json(p[0]);
-          });
+        Posts.update(req.params.id, changes).then((count) => {
+          if (count) {
+            Posts.findById(req.params.id)
+              .then((p) => {
+                res.status(200).json(p[0]);
+              })
+              .catch((err) =>
+                res
+                  .status(500)
+                  .json({
+                    error: "The post information could not be modified.",
+                  })
+              );
+          } else {
+            res.status(400).json({
+              errorMessage: "The post with the specified ID does not exist.",
+            });
+          }
         });
       }
     })

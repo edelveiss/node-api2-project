@@ -110,7 +110,7 @@ const Post = (props) => {
       )}
 
       {commentToggle && (
-        <div>
+        <div className="comments">
           {comments.map((c, index) => (
             <p key={index}>{c.text}</p>
           ))}
@@ -150,7 +150,7 @@ const Post = (props) => {
               cursor: "pointer",
             }}
           >
-            <h3 style={{ color: "grey" }}>Hide Comments... </h3>
+            <h3 style={{ color: "black" }}>Hide Comments... </h3>
           </div>
         </div>
       )}
