@@ -49,7 +49,16 @@ h2 {
   align-items: center;
   width: 40%;
 }
+.post-home {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .post-form {
+  position: fixed;
+  top: 30%;
+  right: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,12 +68,7 @@ h2 {
 .post-form h2 {
   background: white;
 }
-.post-home {
-  margin-top: 4rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-}
+
 .post-list {
   background: #ecf1ee;
   height: auto;
@@ -72,6 +76,7 @@ h2 {
   width: 100%;
   margin-bottom: 1rem;
   padding: 1rem;
+  margin-left: 13rem;
 }
 form {
   display: flex;
@@ -90,6 +95,19 @@ label {
 }
 
 input {
+  width: 100%;
+  margin: 5px 0 0;
+  display: block;
+  width: 100%;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 10px;
+  transition: all 0.3s;
+  font-size: 1.4rem;
+  letter-spacing: 0.5px;
+  background-color: white;
+}
+textarea {
   width: 100%;
   margin: 5px 0 0;
   display: block;

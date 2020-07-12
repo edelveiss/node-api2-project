@@ -32,7 +32,9 @@ const PostForm = (props) => {
       >
         <label htmlFor="title">
           Title
-          <input
+          <textarea
+            rows="4"
+            cols="50"
             id="title"
             type="text"
             name="title"
@@ -46,7 +48,9 @@ const PostForm = (props) => {
 
         <label htmlFor="contents">
           Contents
-          <input
+          <textarea
+            rows="4"
+            cols="50"
             id="contents"
             type="text"
             name="contents"
