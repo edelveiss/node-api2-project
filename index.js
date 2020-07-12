@@ -12,10 +12,18 @@ server.use(cors());
 server.use("/api/posts", postsRouter);
 //API test
 server.get("/", (req, res) => {
-  res.send(`
-        <h2>Lambda Posts API</h>
-        <p>Welcome to the Lambda Posts API</p>
-      `);
+  const motd = process.env.MOTD || "hello world!";
+  res.send({
+    motd: motd,
+    mess: `
+            <h2>Lambda Posts API</h>
+            <p>Welcome to the Lambda Posts API</p>
+          `,
+  });
+  //   res.send(`
+  //         <h2>Lambda Posts API</h>
+  //         <p>Welcome to the Lambda Posts API</p>
+  //       `);
 });
 
 server.listen(port, () => {
