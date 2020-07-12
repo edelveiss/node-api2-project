@@ -1,8 +1,10 @@
+require("dotenv").config();
 const express = require("express");
 
 const postsRouter = require("./posts/posts-router");
 const cors = require("cors");
-const PORT = 4000;
+const port = process.env.PORT || 5000;
+//const PORT = 4000;
 const server = express();
 
 server.use(express.json());
@@ -16,6 +18,6 @@ server.get("/", (req, res) => {
       `);
 });
 
-server.listen(PORT, () => {
-  console.log("\n*** Server Running on http://localhost:4000 ***\n");
+server.listen(port, () => {
+  console.log(`\n*** Server Running on http://localhost:${port} ***\n`);
 });
