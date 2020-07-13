@@ -14,6 +14,9 @@ const initialPost = {
 
 function App() {
   const [posts, setPosts] = useState([]);
+  const [appUrl, setAppUrl] = useState(
+    "https://tzapi2.herokuapp.com/api/posts"
+  );
 
   const [post, setPost] = useState(initialPost);
 
@@ -22,7 +25,7 @@ function App() {
 
   useEffect(() => {
     axios
-      .get("https://tzapi2.herokuapp.com/api/posts")
+      .get(appUrl)
       .then((response) => {
         // console.log("get response.data", response.data);
         setPosts(response.data);
@@ -36,7 +39,7 @@ function App() {
 
   const addNewPost = () => {
     axios
-      .post("https://tzapi2.herokuapp.com/api/posts", post)
+      .post(appUrl, post)
       .then((response) => {
         console.log("get response.data", response.data);
         setPosts([...posts, response.data]);
@@ -50,7 +53,7 @@ function App() {
   };
   const editPost = () => {
     axios
-      .put(`https://tzapi2.herokuapp.com/api/posts/${post.id}`, post)
+      .put(`${appUrl}/${post.id}`, post)
       .then((response) => {
         //console.log("resp data in put post", response);
         const newPosts = posts.map((u) => {
@@ -74,7 +77,7 @@ function App() {
   const deletePost = (post) => {
     //console.log("user in deleteUser", user.id);
     axios
-      .delete(`https://tzapi2.herokuapp.com/api/posts/${post.id}`)
+      .delete(`${appUrl}/${post.id}`)
       .then((response) => {
         //console.log("resp del", response);
         const newPosts = posts.filter((u) => u.id !== response.data.id);
@@ -128,6 +131,7 @@ function App() {
               setPost={setPost}
               error={error}
               setError={setError}
+              appUrl={appUrl}
             />
           ))}
         </div>
