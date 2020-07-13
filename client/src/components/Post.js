@@ -16,7 +16,7 @@ const Post = (props) => {
   const [addComment, setAddComment] = useState(false);
   useEffect(() => {
     axios
-      .get(`https://tzapi2.herokuapp.com/api/posts/${props.post.id}/comments`)
+      .get(`${props.appUrl}/${props.post.id}/comments`)
       .then((response) => {
         // console.log("get response.data", response.data);
         setComments(response.data);
@@ -53,7 +53,7 @@ const Post = (props) => {
   //handle comments
   const addNewComment = () => {
     axios
-      .post("https://tzapi2.herokuapp.com/api/posts/:id/comments", comment)
+      .post(`${props.appUrl}/:id/comments`, comment)
       .then((response) => {
         console.log("get response.data", response.data);
         setComments([...comments, response.data]);
